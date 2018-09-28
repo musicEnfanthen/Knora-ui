@@ -81,6 +81,8 @@ export class ResourceComponent implements OnChanges, OnInit {
 
                                     this.resource = resourceSeq.resources[0];
 
+                                    console.log('resource', this.resource);
+
                                     this.requestIncomingResources();
                                 },
                                 (err) => {
@@ -272,6 +274,8 @@ export class ResourceComponent implements OnChanges, OnInit {
 
                     // get resource class Iris from response
                     const resourceClassIris: string[] = ConvertJSONLD.getResourceClassesFromJsonLD(compacted);
+
+
 
                     // request ontology information about resource class Iris (properties are implied)
                     this._cacheService.getResourceClassDefinitions(resourceClassIris).subscribe(

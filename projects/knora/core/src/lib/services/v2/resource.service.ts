@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { ApiService } from '../api.service';
-import { ApiServiceResult } from '../../declarations';
+import { ApiServiceResult, ProjectsResponse } from '../../declarations';
+import { catchError, map } from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root'
@@ -19,6 +20,14 @@ export class ResourceService extends ApiService {
     getResource(iri): Observable<ApiServiceResult> {
         // console.log('IRI from resource service: ', iri);
         return this.httpGet('/v2/resources/' + encodeURIComponent(iri));
+
+        /*
+        return this.httpGet('/v2/resources/').pipe(
+            map((result: ApiServiceResult) => result.getBody(ProjectsResponse).projects),
+            catchError(this.handleJsonError)
+        );
+        */
+
     }
 
     /*
