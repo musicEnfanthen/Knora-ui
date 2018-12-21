@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import '@ckeditor/ckeditor5-build-classic/build/translations/de.js';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { ChangeEvent } from '@ckeditor/ckeditor5-angular/ckeditor.component';
+import '@ckeditor/ckeditor5-build-classic/build/translations/fr.js';
+import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
 
 @Component({
     selector: 'app-experiment-features',
@@ -10,8 +11,8 @@ import { ChangeEvent } from '@ckeditor/ckeditor5-angular/ckeditor.component';
 })
 export class ExperimentFeaturesComponent implements OnInit {
 
+    // CKEditor5
     public Editor = ClassicEditor;
-
     public editorData = `
     <p>
         Lorem ipsum dolor sit amet, ne vix volumus ponderum suavitate, ad ius prompta gloriatur. Lobortis intellegam
@@ -22,19 +23,35 @@ export class ExperimentFeaturesComponent implements OnInit {
         delectus. Quo cu atqui eruditi qualisque, posse facer solet te his.
     </p>
     <img src="assets/images/knora-logo.png" alt="knora logo">`;
-
     public config = {
-        language: 'de'
+        language: 'fr'
     };
-
     public onChange({ editor }: ChangeEvent) {
         const data = editor.getData();
         console.log(data);
     }
 
-    constructor() { }
+    constructor() {
+        ClassicEditor.defaultConfig = {
+            toolbar: {
+                items: [
+                    'heading',
+                    '|',
+                    'undo',
+                    'redo',
+                    'bold',
+                    'italic',
+                    'link',
+                    'bulletedList',
+                    'numberedList',
+                    'imageUpload',
+                    'blockQuote',
+                    'alignment'
+                ]
+            }
+        };
+    }
 
     ngOnInit() {
-        console.log(this.config);
     }
 }
