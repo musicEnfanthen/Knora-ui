@@ -43,6 +43,7 @@ import { MainIntroComponent } from './landing-page/main-intro/main-intro.compone
 import { TreeComponent } from './material/tree/tree.component';
 // /modules demo
 import { ModuleIndexComponent } from './partials/module-index/module-index.component';
+import { ExperimentFeaturesComponent } from './experiment-features/experiment-features.component';
 
 const appRoutes: Routes = [
     {
@@ -255,6 +256,10 @@ const appRoutes: Routes = [
     {
         path: 'documentation',
         component: DocIntroComponent
+    },
+    {
+        path: 'experiment',
+        component: ExperimentFeaturesComponent
     },
     {
         path: 'test',

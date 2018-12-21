@@ -64,6 +64,10 @@ import { DocumentationViewerComponent } from './partials/documentation-viewer/do
 import { AuthenticationDemoComponent } from './knora-ui-examples/authentication-demo/authentication-demo.component';
 import { SearchPanelComponent } from './knora-ui-examples/search-demo/search-panel/search-panel.component';
 import { TrimBracketsPipe } from './partials/pipes/trim-brackets.pipe';
+import { ExperimentFeaturesComponent } from './experiment-features/experiment-features.component';
+
+// experiment new features or packages
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 @NgModule({
     declarations: [
@@ -107,7 +111,8 @@ import { TrimBracketsPipe } from './partials/pipes/trim-brackets.pipe';
         DocumentationViewerComponent,
         AuthenticationDemoComponent,
         SearchPanelComponent,
-        TrimBracketsPipe
+        TrimBracketsPipe,
+        ExperimentFeaturesComponent
     ],
     entryComponents: [
         // LoginFormComponent
@@ -129,8 +134,9 @@ import { TrimBracketsPipe } from './partials/pipes/trim-brackets.pipe';
         KuiViewerModule,
         MaterialModule,
         HttpClientModule,
-        MarkdownModule.forRoot({loader: HttpClient}),
-        ReactiveFormsModule
+        MarkdownModule.forRoot({ loader: HttpClient }),
+        ReactiveFormsModule,
+        CKEditorModule
     ],
     providers: [
         {
@@ -139,7 +145,7 @@ import { TrimBracketsPipe } from './partials/pipes/trim-brackets.pipe';
                 hasBackdrop: false
             }
         },
-        {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+        { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
         // {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
 
     ],
