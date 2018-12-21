@@ -99,3 +99,13 @@ iframe {
   }
 }
 */
+
+/* CKEditor5 build classic */
+.ck-editor__editable {
+  min-height: 500px;
+}
+.ckeditor-window {
+  max-width: 50%;
+  margin-left: 30%;
+  margin-top: 3%;
+}
