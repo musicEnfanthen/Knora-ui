@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { ChangeEvent } from '@ckeditor/ckeditor5-angular/ckeditor.component';
-import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
+import { Alignment } from '@ckeditor/ckeditor5-alignment/src/alignment';
 import '@ckeditor/ckeditor5-build-classic/build/translations/de.js';
 
 @Component({
@@ -9,7 +9,7 @@ import '@ckeditor/ckeditor5-build-classic/build/translations/de.js';
     templateUrl: './experiment-features.component.html',
     styleUrls: ['./experiment-features.component.scss']
 })
-export class ExperimentFeaturesComponent implements OnInit {
+export class ExperimentFeaturesComponent {
 
     // CKEditor5
     public Editor = ClassicEditor;
@@ -50,6 +50,4 @@ export class ExperimentFeaturesComponent implements OnInit {
         };
     }
 
-    ngOnInit() {
-    }
 }
