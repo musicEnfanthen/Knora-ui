@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { ChangeEvent } from '@ckeditor/ckeditor5-angular/ckeditor.component';
-import '@ckeditor/ckeditor5-build-classic/build/translations/fr.js';
 import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
+import '@ckeditor/ckeditor5-build-classic/build/translations/de.js';
 
 @Component({
     selector: 'app-experiment-features',
@@ -23,15 +23,13 @@ export class ExperimentFeaturesComponent implements OnInit {
         delectus. Quo cu atqui eruditi qualisque, posse facer solet te his.
     </p>
     <img src="assets/images/knora-logo.png" alt="knora logo">`;
-    public config = {
-        language: 'fr'
-    };
     public onChange({ editor }: ChangeEvent) {
         const data = editor.getData();
         console.log(data);
     }
 
     constructor() {
+        // toolbar and language customisation
         ClassicEditor.defaultConfig = {
             toolbar: {
                 items: [
@@ -45,10 +43,10 @@ export class ExperimentFeaturesComponent implements OnInit {
                     'bulletedList',
                     'numberedList',
                     'imageUpload',
-                    'blockQuote',
-                    'alignment'
+                    'blockQuote'
                 ]
-            }
+            },
+            language: 'de'
         };
     }
 
